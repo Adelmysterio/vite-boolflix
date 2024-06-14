@@ -3,14 +3,20 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    font-family: sans-serif;
+}
 
 ul {
     list-style-type: none;
     margin-bottom: 1rem;
 }
 
-.flex-center {
+.flex {
     display: flex;
+}
+
+.align-center {
     align-items: center;
 }
 

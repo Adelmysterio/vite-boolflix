@@ -73,9 +73,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@use '../style/general.scss' as *;
 
 h1 {
     margin-bottom: 1rem;
 }
+
 </style>

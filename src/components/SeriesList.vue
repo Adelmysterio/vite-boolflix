@@ -13,26 +13,42 @@ export default {
                 flag = "https://flagsapi.com/GB/flat/16.png"
             }
             return flag
-        }
+        },
+
+        getPosters(seriePoster) {
+            let posterUrl = "http://image.tmdb.org/t/p/w342/" + seriePoster
+            return posterUrl
+        },
     },
 }
+
 </script>
 
 <template>
-    <ul v-for="(serie, index) in store.series">
-        <li>
-            Titolo: {{ serie.name }}
-        </li>
-        <li>
-            Titolo Originale: {{ serie.original_name }}
-        </li>
-        <li class="flex-center">
-            Lingua: <img :src="getFlag(serie.original_language.toUpperCase())" alt="">
-        </li>
-        <li>
-            Voto: {{ serie.vote_average }}
-        </li>
-    </ul>
+    <div class="wrapper">
+        <ul v-for="(serie, index) in store.series">
+            <li class="poster-container">
+                <img v-if="serie.poster_path != null" :src="getPosters(serie.poster_path)" alt="">
+                <div v-else class="movie-placeholder">
+                    <p>{{ serie.name }}</p>
+                </div>
+            </li>
+            <li>
+                Titolo: {{ serie.name }}
+            </li>
+            <li>
+                Titolo Originale: {{ serie.original_name }}
+            </li>
+            <li class="flex align-center">
+                Lingua: <img :src="getFlag(serie.original_language.toUpperCase())" :alt="serie.original_language">
+            </li>
+            <li>
+                Voto: {{ serie.vote_average }}
+            </li>
+        </ul>
+    </div>
 </template>
 
-<style lang=scss scoped></style>
+<style lang=scss scoped>
+@use '../style/style-list.scss' as *;
+</style>
