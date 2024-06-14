@@ -18,6 +18,11 @@ export default {
         getPosters(moviePoster) {
             let posterUrl = "http://image.tmdb.org/t/p/w342/" + moviePoster
             return posterUrl
+        },
+
+        toStarVote(vote) {
+            let starsVote = Math.round(vote / 2)
+            return starsVote
         }
     },
 }
@@ -43,7 +48,7 @@ export default {
                 Lingua: <img :src="getFlag(movie.original_language.toUpperCase())" :alt="movie.original_language">
             </li>
             <li>
-                Voto: {{ movie.vote_average }}
+                Voto: {{ toStarVote(movie.vote_average) }}
             </li>
         </ul>
     </div>

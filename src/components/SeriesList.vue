@@ -19,6 +19,11 @@ export default {
             let posterUrl = "http://image.tmdb.org/t/p/w342/" + seriePoster
             return posterUrl
         },
+
+        toStarVote(vote) {
+            let starsVote = Math.round(vote / 2)
+            return starsVote
+        }
     },
 }
 
@@ -43,7 +48,7 @@ export default {
                 Lingua: <img :src="getFlag(serie.original_language.toUpperCase())" :alt="serie.original_language">
             </li>
             <li>
-                Voto: {{ serie.vote_average }}
+                Voto: {{ toStarVote(serie.vote_average) }} 
             </li>
         </ul>
     </div>
