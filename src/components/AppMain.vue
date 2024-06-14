@@ -2,11 +2,15 @@
 import { store } from '../store.js';
 import axios from 'axios';
 import SearchBar from './SearchBar.vue';
+import MovieList from './MovieList.vue';
+import SeriesList from './SeriesList.vue';
 
 export default {
 
     components: {
         SearchBar,
+        MovieList,
+        SeriesList
     },
 
     data() {
@@ -48,18 +52,12 @@ export default {
                     console.error(error);
                 });
         },
-        getFlag(nation) {
-            let flag = "https://flagsapi.com/"+ nation + "/flat/16.png"
-            if (nation == "EN") {
-                flag = "https://flagsapi.com/GB/flat/16.png"
-            }
-            return flag
-        }
+
 
     },
 
     created() {
-        
+
     }
 }
 </script>
@@ -68,35 +66,9 @@ export default {
     <main>
         <SearchBar @movieSearch="searchMovie" />
         <h1>Film</h1>
-        <ul v-for="(movie, index) in store.movies">
-            <li>
-                Titolo: {{ movie.title }}
-            </li>
-            <li>
-                Titolo Originale: {{ movie.original_title }}
-            </li>
-            <li class="flex-center">
-                Lingua: <img :src="getFlag(movie.original_language.toUpperCase())" alt="">
-            </li>
-            <li>
-                Voto: {{ movie.vote_average }}
-            </li>
-        </ul>
+        <MovieList />
         <h1>Serie TV</h1>
-        <ul v-for="(serie, index) in store.series">
-            <li>
-                Titolo: {{ serie.name }}
-            </li>
-            <li>
-                Titolo Originale: {{ serie.original_name }}
-            </li>
-            <li class="flex-center">
-                Lingua: <img :src="getFlag(serie.original_language.toUpperCase())" alt="">
-            </li>
-            <li>
-                Voto: {{ serie.vote_average }}
-            </li>
-        </ul>
+        <SeriesList />
     </main>
 </template>
 
