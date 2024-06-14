@@ -12,10 +12,12 @@ export default {
 
 <template>
     <section>
-        <input type="text" v-model="searched" @keyup.enter="$emit('movieSearch', searched)">
+        <input type="text" v-model="searched" @keyup.enter="$emit('movieSearch', searched)" >
         <button @click="$emit('movieSearch', searched)">Search</button>
     </section>
 
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+
+</style>
