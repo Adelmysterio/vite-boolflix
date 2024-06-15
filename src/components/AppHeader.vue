@@ -72,9 +72,6 @@ header {
     overflow: hidden;
     justify-content: space-between;
     padding: 0 2rem;
-    position: fixed;
-    left: 0;
-    right: 0;
 }
 
 img {

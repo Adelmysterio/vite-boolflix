@@ -20,10 +20,12 @@ export default {
 
 <template>
     <main>
-        <h1 v-if="store.movies.length > 0">Film</h1>
-        <MovieList />
-        <h1 v-if="store.series.length > 0">Serie TV</h1>
-        <SeriesList />
+        <div class="container">
+            <h1 v-if="store.movies.length > 0">Film</h1>
+            <MovieList />
+            <h1 v-if="store.series.length > 0">Serie TV</h1>
+            <SeriesList />
+        </div>
     </main>
 </template>
 
@@ -33,10 +35,10 @@ export default {
 main {
     background-color: $gray;
     width: 100%;
-    height: 100vh;
-    overflow: scroll;
-    padding: 5rem 2rem;
+    height: calc(100vh - 4rem);
+    overflow-y: scroll;
     color: white;
+padding: 2rem;
 }
 
 h1 {

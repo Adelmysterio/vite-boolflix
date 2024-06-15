@@ -33,28 +33,28 @@ export default {
 
 <template>
     <div class="wrapper">
-        <article v-for="(movie, index) in store.movies" >
-            <figure class="poster-container" :style="{ backgroundImage: `url(${getPosters(movie.poster_path)})`}">
-                <div class="poster" v-if="movie.poster_path != null">
-                </div>
-                <div v-else class="movie-placeholder">
-                    <p>{{ movie.title }}</p>
-                </div>
+        <article v-for="(movie, index) in store.movies">
+            <figure class="poster-container" :style="{ backgroundImage: `url(${getPosters(movie.poster_path)})` }">
+                <h3 v-show="movie.poster_path == null">{{ movie.title }}</h3>
+                <ul>
+                    <li>
+                        Titolo: {{ movie.title }}
+                    </li>
+                    <li>
+                        Titolo Originale: {{ movie.original_title }}
+                    </li>
+                    <li class="flex align-center">
+                        Lingua: <img :src="getFlag(movie.original_language.toUpperCase())"
+                            :alt="movie.original_language">
+                    </li>
+                    <li>
+                        <StarsVote :rating="movie.vote_average" />
+                    </li>
+                    <li>
+                        Overview: {{ movie.overview }}
+                    </li>
+                </ul>
             </figure>
-            <ul>
-                <li>
-                    Titolo: {{ movie.title }}
-                </li>
-                <li>
-                    Titolo Originale: {{ movie.original_title }}
-                </li>
-                <li class="flex align-center">
-                    Lingua: <img :src="getFlag(movie.original_language.toUpperCase())" :alt="movie.original_language">
-                </li>
-                <li>
-                    <StarsVote :rating="movie.vote_average" />
-                </li>
-            </ul>
         </article>
     </div>
 </template>

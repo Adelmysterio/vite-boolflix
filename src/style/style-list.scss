@@ -1,28 +1,61 @@
 .wrapper {
     display: flex;
-    width: 100vw;
+    width: 100%;
     overflow: scroll;
+    margin-bottom: 3rem;
+
     figure {
         border: 1px solid white;
     }
+
     article {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+        padding-bottom: 3;
         color: white;
         margin-right: .5rem;
+    }
+}
+
+article:hover {
+
+    figure {
+        overflow: scroll;
+
+        ul {
+            padding: 5%;
+            backdrop-filter: brightness(.1);
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+
+    h3 {
+        display: none;
     }
 }
 
 .poster-container {
     width: 342px;
     height: 450px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
-    .movie-placeholder {
-        height: 100%;
-        background-color: grey;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 3rem;
+    h3 {
+        font-size: 2rem;
         text-transform: uppercase;
+    }
+
+    ul {
+        height: 100%;
+        width: 100%;
+        display: none;
+
+        li {
+            margin-bottom: .2rem;
+        }
     }
 }
