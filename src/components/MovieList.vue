@@ -33,27 +33,29 @@ export default {
 
 <template>
     <div class="wrapper">
-        <ul v-for="(movie, index) in store.movies">
-            <li class="poster-container">
+        <article v-for="(movie, index) in store.movies">
+            <figure class="poster-container">
                 <img v-if="movie.poster_path != null" :src="getPosters(movie.poster_path)"
                     :alt="movie.title + ' Poster Images'">
                 <div v-else class="movie-placeholder">
                     <p>{{ movie.title }}</p>
                 </div>
-            </li>
-            <li>
-                Titolo: {{ movie.title }}
-            </li>
-            <li>
-                Titolo Originale: {{ movie.original_title }}
-            </li>
-            <li class="flex align-center">
-                Lingua: <img :src="getFlag(movie.original_language.toUpperCase())" :alt="movie.original_language">
-            </li>
-            <li>
-                <StarsVote :rating="movie.vote_average"/>
-            </li>
-        </ul>
+            </figure>
+            <ul>
+                <li>
+                    Titolo: {{ movie.title }}
+                </li>
+                <li>
+                    Titolo Originale: {{ movie.original_title }}
+                </li>
+                <li class="flex align-center">
+                    Lingua: <img :src="getFlag(movie.original_language.toUpperCase())" :alt="movie.original_language">
+                </li>
+                <li>
+                    <StarsVote :rating="movie.vote_average" />
+                </li>
+            </ul>
+        </article>
     </div>
 </template>
 

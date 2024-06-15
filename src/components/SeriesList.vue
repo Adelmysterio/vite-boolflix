@@ -37,26 +37,28 @@ export default {
 
 <template>
     <div class="wrapper">
-        <ul v-for="(serie, index) in store.series">
-            <li class="poster-container">
+        <article v-for="(serie, index) in store.series">
+            <figure class="poster-container">
                 <img v-if="serie.poster_path != null" :src="getPosters(serie.poster_path)" alt="">
                 <div v-else class="movie-placeholder">
                     <p>{{ serie.name }}</p>
                 </div>
-            </li>
-            <li>
-                Titolo: {{ serie.name }}
-            </li>
-            <li>
-                Titolo Originale: {{ serie.original_name }}
-            </li>
-            <li class="flex align-center">
-                Lingua: <img :src="getFlag(serie.original_language.toUpperCase())" :alt="serie.original_language">
-            </li>
-            <li>
-                <StarsVote :rating="serie.vote_average"/>
-            </li>
-        </ul>
+            </figure>
+            <ul>
+                <li>
+                    Titolo: {{ serie.name }}
+                </li>
+                <li>
+                    Titolo Originale: {{ serie.original_name }}
+                </li>
+                <li class="flex align-center">
+                    Lingua: <img :src="getFlag(serie.original_language.toUpperCase())" :alt="serie.original_language">
+                </li>
+                <li>
+                    <StarsVote :rating="serie.vote_average" />
+                </li>
+            </ul>
+        </article>
     </div>
 </template>
 

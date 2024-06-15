@@ -12,14 +12,34 @@ export default {
 
 <template>
     <section>
+        <button @click="$emit('movieSearch', searched)"><font-awesome-icon icon="magnifying-glass" /></button>
         <input type="text" v-model="searched" @keyup.enter="$emit('movieSearch', searched)">
-        <button @click="$emit('movieSearch', searched)">Search</button>
     </section>
 
 </template>
 
 <style lang="scss" scoped>
-input {
-    margin-bottom: 2rem;
+section {
+    display: flex;
+    width: 25%;
+
+    button {
+        background-color: transparent;
+        color: white;
+        border: none;
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        cursor: pointer;
+    }
+
+    input {
+        width: 100%;
+        background-color: transparent;
+        border: 2px solid white;
+        border-radius: 10px;
+        color: white;
+        font-size: 1rem;
+        padding: .4rem 1rem;
+    }
 }
 </style>

@@ -57,8 +57,27 @@ export default {
 </script>
 
 <template>
-    <h1>header</h1>
-    <SearchBar @movieSearch="searchMovie" />
+    <header>
+        <img src="https://ih1.redbubble.net/image.3350844638.4521/raf,360x360,075,t,fafafa:ca443f4786.jpg" alt="">
+        <SearchBar class="search" @movieSearch="searchMovie" />
+    </header>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+header {
+    background-color: black;
+    display: flex;
+    height: 4rem;
+    align-items: center;
+    overflow: hidden;
+    justify-content: space-between;
+    padding: 0 2rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+img {
+    height: 7rem;
+}
+</style>
