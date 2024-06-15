@@ -33,10 +33,10 @@ export default {
 
 <template>
     <div class="wrapper">
-        <article v-for="(movie, index) in store.movies">
-            <figure class="poster-container">
-                <img v-if="movie.poster_path != null" :src="getPosters(movie.poster_path)"
-                    :alt="movie.title + ' Poster Images'">
+        <article v-for="(movie, index) in store.movies" >
+            <figure class="poster-container" :style="{ backgroundImage: `url(${getPosters(movie.poster_path)})`}">
+                <div class="poster" v-if="movie.poster_path != null">
+                </div>
                 <div v-else class="movie-placeholder">
                     <p>{{ movie.title }}</p>
                 </div>
