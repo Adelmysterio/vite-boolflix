@@ -1,6 +1,12 @@
 <script>
 import { store } from '../store.js';
+import StarsVote from './StarsVote.vue'
 export default {
+
+    components: {
+        StarsVote
+    },
+
     data() {
         return {
             store,
@@ -48,7 +54,7 @@ export default {
                 Lingua: <img :src="getFlag(serie.original_language.toUpperCase())" :alt="serie.original_language">
             </li>
             <li>
-                Voto: {{ toStarVote(serie.vote_average) }} 
+                <StarsVote :rating="serie.vote_average"/>
             </li>
         </ul>
     </div>

@@ -1,11 +1,18 @@
 <script>
+import StarsVote from './StarsVote.vue'
 import { store } from '../store.js';
 export default {
+
+    components: {
+        StarsVote
+    },
+
     data() {
         return {
             store,
         }
     },
+
     methods: {
         getFlag(nation) {
             let flag = "https://flagsapi.com/" + nation + "/flat/16.png"
@@ -20,10 +27,6 @@ export default {
             return posterUrl
         },
 
-        toStarVote(vote) {
-            let starsVote = Math.round(vote / 2)
-            return starsVote
-        }
     },
 }
 </script>
@@ -48,7 +51,7 @@ export default {
                 Lingua: <img :src="getFlag(movie.original_language.toUpperCase())" :alt="movie.original_language">
             </li>
             <li>
-                Voto: {{ toStarVote(movie.vote_average) }}
+                <StarsVote :rating="movie.vote_average"/>
             </li>
         </ul>
     </div>
