@@ -4,31 +4,30 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            movieActors: [],
+            tvActors: []
         }
     },
     props: {
         id: Number
     },
     methods: {
-        getMovieActors(num) {
-            axios.get(`https://api.themoviedb.org/3/movie/${num}/credits`, {
+        getTvActors(num) {
+            axios.get(`https://api.themoviedb.org/3/tv/${num}/credits`, {
                 params: {
                     api_key: 'e99307154c6dfb0b4750f6603256716d',
                 }
             })
                 .then((response) => {
                     console.log(response.data.cast.slice(0, 5).map(item => item.name))
-                    this.movieActors = response.data.cast.slice(0, 5).map(item => item.name);
+                    this.tvActors = response.data.cast.slice(0, 5).map(item => item.name);
                 })
                 .catch((error) => {
                     console.error(error);
                 });
         },
-
     },
     mounted() {
-        this.getMovieActors(this.id);
+        this.getTvActors(this.id)
     },
 }
 </script>
@@ -36,7 +35,7 @@ export default {
 <template>
     <div>
         <ul>Actors:
-            <li v-for="(actor, index) in movieActors" :key="index">
+            <li v-for="(actor, index) in tvActors" :key="index">
                 {{ actor }}
             </li>
         </ul>
@@ -48,7 +47,6 @@ div {
 
     margin-bottom: .7rem;
 }
-
 ul {
     display: inline;
     margin-right: 1rem;
