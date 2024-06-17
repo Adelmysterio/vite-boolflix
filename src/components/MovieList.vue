@@ -1,10 +1,12 @@
 <script>
 import StarsVote from './StarsVote.vue'
+import ActorsList from './ActorsList.vue';
 import { store } from '../store.js';
 export default {
 
     components: {
-        StarsVote
+        StarsVote,
+        ActorsList
     },
 
     data() {
@@ -28,7 +30,9 @@ export default {
         },
 
     },
+
 }
+
 </script>
 
 <template>
@@ -42,6 +46,9 @@ export default {
                     </li>
                     <li>
                         Titolo Originale: {{ movie.original_title }}
+                    </li>
+                    <li>
+                        <ActorsList :id="movie.id"/>
                     </li>
                     <li class="flex align-center">
                         Lingua: <img :src="getFlag(movie.original_language.toUpperCase())"
